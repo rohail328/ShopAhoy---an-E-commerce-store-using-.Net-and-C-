@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShopAhoy.master.cs" Inherits="ShopAhoy.ShopAhoy" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <title>SHOPAHOY!</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="Template/Img/bag.png" rel="icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="Template/lib-slick/slick.css" rel="stylesheet" />
+    <link href="Template/lib-slick/slick-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="Template/lib-easing/easing.min.js"></script>
+    <script src="Template/lib-slick/slick.min.js"></script>
+
+    <link href="Template/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <i class="fa fa-envelope"></i>
+                        shopahoy@gmail.com
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-phone-alt"></i>
+                        +xxx-xxx-xxx
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <div class="navbar-nav ml-auto">
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Catagories</a>
+                                    <div class="dropdown-menu">
+                                        <asp:LinkButton ID="LinkButton2" CssClass="dropdown-item" runat="server" CommandArgument="1" CommandName="catagory" OnCommand="load_Catagory">Electronics</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton3" CssClass="dropdown-item" runat="server" CommandArgument="2" CommandName="catagory" OnCommand="load_Catagory">Groceries</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton4" CssClass="dropdown-item" runat="server" CommandArgument="3" CommandName="catagory" OnCommand="load_Catagory">Cosmetics</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton5" CssClass="dropdown-item" runat="server" CommandArgument="4" CommandName="catagory" OnCommand="load_Catagory">Sports</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton6" CssClass="dropdown-item" runat="server" CommandArgument="5" CommandName="catagory" OnCommand="load_Catagory">Fashion</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton7" CssClass="dropdown-item" runat="server" CommandArgument="6" CommandName="catagory" OnCommand="load_Catagory">Automotive Parts</asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+                            <%-- YOUR PAGE LINKS HEREE!!!!! --%>
+                            <asp:HyperLink ID="HyperLink14" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/HomePage.aspx">Home</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink4" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/ProductList.aspx">Products</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink3" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/UserAccount.aspx">My Account</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink1" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink13" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/StoreContact.aspx">Contact</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink16" CssClass="nav-item nav-link" runat="server" NavigateUrl="~/CheckOut.aspx">CheckOut</asp:HyperLink>
+
+                        </div>
+
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" id="loginSignupLink" class="nav-link dropdown-toggle" data-toggle="dropdown" runat="server">User Account</a>
+                                <div class="dropdown-menu">
+                                    <asp:HyperLink ID="HyperLink11" CssClass="dropdown-item" runat="server" NavigateUrl="~/AccountLogIn.aspx">Login</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink12" CssClass="dropdown-item" runat="server" NavigateUrl="~/AccountSignUp.aspx">Sign Up</asp:HyperLink>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="border-bottom">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="#"> <img src="Template/Img/logo1.png" alt="Logo" /></asp:HyperLink>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="search">
+                            <asp:TextBox ID="TextBox1" runat="server" placeholder="Search" Width="442px"></asp:TextBox>
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="searchProduct"><i class="fa fa-search"></i></asp:LinkButton>
+                        </div>
+                    </div>
+
+                    <%--                    <div class="col-md-3">
+                        <div class="user">
+                            <a href="Cart.aspx" class="btn cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>(0)</span>
+                            </a>
+                        </div>
+                    </div>--%>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="col-md-6 copyright">
+                <p>Copyright &copy; <a href="ProductDetails.aspx">ShopAhoy</a>. All Rights Reserved</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
